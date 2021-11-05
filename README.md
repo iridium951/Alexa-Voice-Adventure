@@ -1,4 +1,4 @@
-# start-team-01
+# start-team-01: Interaktive Voice Story - Alexa Voice User Interface
 start-team-01 created by GitHub Classroom
 
 Welcome to our voice assistant.
