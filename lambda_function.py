@@ -40,8 +40,6 @@ class LaunchRequestHandler(AbstractRequestHandler):
         )
 
 
-
-
 class get_nameHandler(AbstractRequestHandler):
     """Handler for get_name_Intent."""
     def can_handle(self, handler_input):
@@ -58,11 +56,113 @@ class get_nameHandler(AbstractRequestHandler):
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                # .ask("add a reprompt if you want to keep the session open for the user to respond")
+                .ask(speak_output)
                 .response
         )
 
+class YesIntentHandler(AbstractRequestHandler):
+    """Handler for YesIntent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("YesIntent")(handler_input)
 
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = "Guten Morgen, du und dein bester Freund Erik Schneider sind Studenten an einer Hochschule. Seit Wochen arbeitet ihr fleißig an einem Gruppenprojekt, welches einen großen Teil der Endnote ausmachen wird. Ihr kommuniziert regelmäßig in der Schule... aber aus unerklärlichen Gründen ist er heute nicht aufgetaucht. Daher entscheidest du dich ihn zu kontaktieren. Willst du Erik auf Whatsapp anschreiben? Erik anrufen? Oder an Erik eine SMS schreiben?"
+        
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
+
+class NoIntentHandler(AbstractRequestHandler):
+    """Handler for NoIntent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("NoIntent")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        slots = handler_input.request_envelope.request.intent.slots
+        name = slots["name"].value
+        speak_output = "Kein Problem! Dann bis zum Nächsten mal!"
+        
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )        
+
+class WhatsappNachrichtHandler(AbstractRequestHandler):
+    """Handler for WhatsappNachricht Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("WhatsappNachricht")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = "Du verschickst noch eine Whatsapp Nachricht. Auch hier bleibt nur ein einsames graues Häkchen stehen. Willst du etwas anderes versuchen?"
+        
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
+
+class AnrufenHandler(AbstractRequestHandler):
+    """Handler for Anrufen Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("Anrufen")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = "Du findest Erik in deinen Kontakten und drückst die Anruf-Taste. Nach einer kurzer Pause kommt die Telefonansage - Ihr gewünschter Gesprächspartner ist zurzeit leider nicht erreichbar. Willst du etwas anderes versuchen?"
+        
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
+
+class zu_erik_nach_hause_gehenHandler(AbstractRequestHandler):
+    """Handler for Anrufen Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("zu_erik_nach_hause_gehen")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = "Während du mit deinem Fahrrad zu Erik nach Hause gefahren bist, hatte Erik einen tapferen Kampf gegen einen Grizzly Bär geliefert und verstarb. Game over. Willst du es erneut versuchen?"
+        
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
+
+class SMSHandler(AbstractRequestHandler):
+    """Handler for SMS Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("SMS")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = "Du schreibst eine SMS an Erik. Was ist los, bro? Ich kann dich schon seit Stunden nicht erreichen. Schreib zurück sobald du kannst.  Das Handy vibriert, plötzlich bekommst du eine Nachricht von Erik. Während ihr miteinander schreibt, erfährst du, dass er sich irgendwo im Nirgendwo befindet und er aber froh ist mit dir zu schreiben. Du frägst ihn was das Letzte ist an was er sich erinnern kann. Erik antwortete: im Keller habe ich... AAA da vorne ist ein Grizzly Bär. Was soll ich tun?! Willst du Erik schreiben, dass er wegrennen, kämpfen oder still stehen soll?"
+        
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
 
 class HelpIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
@@ -168,6 +268,12 @@ sb = SkillBuilder()
 
 sb.add_request_handler(LaunchRequestHandler())
 sb.add_request_handler(get_nameHandler())
+sb.add_request_handler(YesIntentHandler())
+sb.add_request_handler(NoIntentHandler())
+sb.add_request_handler(WhatsappNachrichtHandler())
+sb.add_request_handler(AnrufenHandler())
+sb.add_request_handler(zu_erik_nach_hause_gehenHandler())
+sb.add_request_handler(SMSHandler())
 sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(CancelOrStopIntentHandler())
 sb.add_request_handler(SessionEndedRequestHandler())
