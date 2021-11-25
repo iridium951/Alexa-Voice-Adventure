@@ -197,6 +197,90 @@ class kaempfenHandler(AbstractRequestHandler) :
             .response
         )
 
+class still_stehenHandler(AbstractRequestHandler) :
+    """Handler for still_stehen Intent"""
+    def can_handle(self,handler_input) :
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("still_stehen")(handler_input)
+    
+    def handle(self, handler_input) :
+        # type: (HandlerInput) -> response
+        speak_output = "Der Bär schaut Erik an und schnüffelt ein wenig an Eriks Beinen. Unbeeindruckt zieht der Bär an Erik vorbei und verschwindet im Gebüsch. Erik bedankt sich bei dir für den Tipp. Nun stellt sich die Frage was er machen soll. Willst du Erik schreiben, dass er tiefer in den Wald, oder versuchen soll, aus dem Wald rauszukommen."
+        
+        return (
+            handler_input.response_builder
+            .speak(speak_output)
+            .ask(speak_output)
+            .response
+        )
+
+class aus_dem_waldHandler(AbstractRequestHandler) :
+    """Handler for aus_dem_wald Intent"""
+    def can_handle(self,handler_input) :
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("aus_dem_wald")(handler_input)
+    
+    def handle(self, handler_input) :
+        # type: (HandlerInput) -> response
+        speak_output = "Erik muss dir beichten, dass er einen schlechten Orientierungssinn hat. Er läuft über Fluss und Wälder während er mit dir schreibt. Als du ihn frägst was er eigentlich vorhin sagen wollte, erinnert er sich, dass er  im Keller eine antike Taschenuhr gefunden hat, die er öffnete. Das nächste, woran er sich erinnert ist, dass er plötzlich im Wald war. Daraufhin rätst du ihm, die Uhr genauer anzuschauen und zu öffnen. Ein paar Minuten später ruft dich dein bester Freund an und teilt dir mit, dass er wieder zu Hause im Keller ist.  Happy End"
+        
+        return (
+            handler_input.response_builder
+            .speak(speak_output)
+            .ask(speak_output)
+            .response
+        )
+
+class camp_bauenHandler(AbstractRequestHandler) :
+    """Handler for camp_bauen Intent"""
+    def can_handle(self,handler_input) :
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("camp_bauen")(handler_input)
+    
+    def handle(self, handler_input) :
+        # type: (HandlerInput) -> response
+        speak_output = "Als Erik einen ruhigen Platz gefunden hat, wo er Stöcke und Steine zu einem kleinen Zelt aufbauen wollte, wird er mit einem Giftpfeil getroffen und schläft ein. Als er wieder aufwacht, ist er in einem Holzkäfig. Erik schaut sich um und sieht Waldbewohner, die sich im Kreis um ein Lagerfeuer scharen. Erik sieht einen spitzen Stein neben sich liegen. Willst du Erik schreiben, dass er die Ranken an der Tür aufschneiden und fliehen soll, oder lieber erstmal abwarten soll?"
+        
+        return (
+            handler_input.response_builder
+            .speak(speak_output)
+            .ask(speak_output)
+            .response
+        )
+
+class abwartenHandler(AbstractRequestHandler):
+    """Handler for abwarten Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("abwarten")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = "Nach kurzer Zeit versammeln sich die Waldbewohner vor dem Käfig, binden ihn an einem Pfahl und bringen ihn zum Feuer. Willst du es erneut versuchen?"
+
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
+
+class aufschneiden_und_fliehenHandler(AbstractRequestHandler):
+    """Handler for aufschneiden_und_fliehen Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("aufschneiden_und_fliehen")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = "Erik rennt schnell ins Gebüsch. Nach einer Weile muss er dir beichten, dass er einen schlechten Orientierungssinn hat. Er läuft über Fluss und Wälder während er mit dir schreibt. Als du ihn frägst, was er eigentlich vorhin sagen wollte, erinnert er sich, dass er  im Keller eine antike Taschenuhr gefunden hat, die er öffnete. Das nächste, woran er sich erinnert ist, dass er plötzlich im Wald war. Daraufhin rätst du ihm, die Uhr genauer anzuschauen und zu öffnen. Ein paar Minuten später ruft dich dein bester Freund an und teilt dir mit, dass er wieder zu Hause im Keller ist. Happy End"
+
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
 
 class HelpIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
@@ -310,6 +394,11 @@ sb.add_request_handler(zu_erik_nach_hause_gehenHandler())
 sb.add_request_handler(SMSHandler())
 sb.add_request_handler(wegrennenHandler())
 sb.add_request_handler(kaempfenHandler())
+sb.add_request_handler(still_stehenHandler())
+sb.add_request_handler(aus_dem_waldHandler())
+sb.add_request_handler(camp_bauenHandler())
+sb.add_request_handler(abwartenHandler())
+sb.add_request_handler(aufschneiden_und_fliehenHandler())
 sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(CancelOrStopIntentHandler())
 sb.add_request_handler(SessionEndedRequestHandler())
@@ -318,4 +407,5 @@ sb.add_request_handler(IntentReflectorHandler()) # make sure IntentReflectorHand
 sb.add_exception_handler(CatchAllExceptionHandler())
 
 lambda_handler = sb.lambda_handler()
+
 
