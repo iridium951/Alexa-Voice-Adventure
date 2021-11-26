@@ -8,10 +8,6 @@
           "samples": []
         },
         {
-          "name": "AMAZON.FallbackIntent",
-          "samples": []
-        },
-        {
           "name": "AMAZON.HelpIntent",
           "samples": []
         },
@@ -50,7 +46,6 @@
           "slots": [],
           "samples": [
             "Handy Nachricht schreiben",
-            "s.m.s.",
             "SMS nachricht schreiben",
             "SMS",
             "SMS schicken",
@@ -201,12 +196,7 @@
           ]
         }
       ],
-      "types": [],
-      "modelConfiguration": {
-        "fallbackIntentSensitivity": {
-          "level": "LOW"
-        }
-      }
+      "types": []
     },
     "dialog": {
       "intents": [
@@ -241,5 +231,5 @@
       }
     ]
   },
-  "version": "16"
+  "version": "20"
 }
