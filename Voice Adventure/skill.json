@@ -1,234 +1,41 @@
 {
-    "interactionModel": {
-        "languageModel": {
-            "invocationName": "voice adventure",
-            "intents": [
-                {
-                    "name": "AMAZON.RepeatIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.HelpIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.StopIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.CancelIntent",
-                    "samples": []
-                },
-                {
-                    "name": "WhatsappNachricht",
-                    "slots": [],
-                    "samples": [
-                        "Whatsapp schreiben",
-                        "auf Whatsapp anschreiben",
-                        "Whatsapp Nachricht schreiben",
-                        "Whatsapp Nachricht",
-                        "Whatsapp",
-                        "Ich möchte Erik auf Whatsapp anschreiben"
-                    ]
-                },
-                {
-                    "name": "Anrufen",
-                    "slots": [],
-                    "samples": [
-                        "Erik anrufen",
-                        "Anruf",
-                        "anrufen",
-                        "Ich möchte Erik anrufen"
-                    ]
-                },
-                {
-                    "name": "SMS",
-                    "slots": [],
-                    "samples": [
-                        "Handy Nachricht schreiben",
-                        "SMS nachricht schreiben",
-                        "SMS",
-                        "SMS schicken",
-                        "SMS schreiben",
-                        "Ich möchte an Erik eine SMS schreiben",
-                        "Ich möchte Erik eine SMS schicken"
-                    ]
-                },
-                {
-                    "name": "zu_erik_nach_hause_gehen",
-                    "slots": [],
-                    "samples": [
-                        "zu erik nach hause",
-                        "erik besuchen",
-                        "zu eriks haus gehen",
-                        "zu erik gehen",
-                        "nach Hause",
-                        "zu Erik",
-                        "Zu Erik nach Hause gehen"
-                    ]
-                },
-                {
-                    "name": "get_name",
-                    "slots": [
-                        {
-                            "name": "name",
-                            "type": "AMAZON.FirstName"
-                        }
-                    ],
-                    "samples": [
-                        "Mein Name ist {name}",
-                        "Meine Name ist {name}",
-                        "ich heiße {name}",
-                        "{name} "
-                    ]
-                },
-                {
-                    "name": "wegrennen",
-                    "slots": [],
-                    "samples": [
-                        "wegrennen",
-                        "renn",
-                        "lauf",
-                        "laufen",
-                        "rennen"
-                    ]
-                },
-                {
-                    "name": "kaempfen",
-                    "slots": [],
-                    "samples": [
-                        "sich verteidigen",
-                        "den bär bekämpfen",
-                        "bekämpfen",
-                        "den bär angreifen",
-                        "angreifen",
-                        "kaempfen",
-                        "verteidigen"
-                    ]
-                },
-                {
-                    "name": "still_stehen",
-                    "slots": [],
-                    "samples": [
-                        "beweg dich nicht",
-                        "stehen bleiben",
-                        "ruhig sein",
-                        "stehen"
-                    ]
-                },
-                {
-                    "name": "camp_bauen",
-                    "slots": [],
-                    "samples": [
-                        "tiefer hinein",
-                        "tiefer",
-                        "rein",
-                        "tiefer rein",
-                        "in den wald",
-                        "tiefer in den wald",
-                        "campen",
-                        "camp bauen",
-                        "lager bauen",
-                        "camp aufbauen",
-                        "lager aufbauen",
-                        "aufbauen",
-                        "lager",
-                        "camp"
-                    ]
-                },
-                {
-                    "name": "aus_dem_wald",
-                    "slots": [],
-                    "samples": [
-                        "weg",
-                        "aus dem wald",
-                        "aus dem wald hinaus",
-                        "hinaus",
-                        "aus dem wald heraus",
-                        "aus dem wald raus",
-                        "raus aus dem wald",
-                        "raus"
-                    ]
-                },
-                {
-                    "name": "abwarten",
-                    "slots": [],
-                    "samples": [
-                        "diplomatie",
-                        "kommunizieren",
-                        "abwarten",
-                        "warten"
-                    ]
-                },
-                {
-                    "name": "aufschneiden_und_fliehen",
-                    "slots": [],
-                    "samples": [
-                        "entfesseln",
-                        "entfliehen",
-                        "zerschneiden",
-                        "entkommen",
-                        "schneiden",
-                        "aufschneiden",
-                        "fliehen"
-                    ]
-                },
-                {
-                    "name": "AMAZON.NavigateHomeIntent",
-                    "samples": []
-                },
-                {
-                    "name": "YesIntent",
-                    "slots": [],
-                    "samples": [
-                        "ja bitte",
-                        "ja"
-                    ]
-                },
-                {
-                    "name": "NoIntent",
-                    "slots": [],
-                    "samples": [
-                        "nö",
-                        "Nein danke",
-                        "Ne",
-                        "Nein"
-                    ]
-                }
-            ],
-            "types": []
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:eu-west-1:836743544584:function:a35bcd09-dbea-457a-af59-88a1db6d1f20:Release_0"
         },
-        "dialog": {
-            "intents": [
-                {
-                    "name": "get_name",
-                    "confirmationRequired": false,
-                    "prompts": {},
-                    "slots": [
-                        {
-                            "name": "name",
-                            "type": "AMAZON.FirstName",
-                            "confirmationRequired": false,
-                            "elicitationRequired": true,
-                            "prompts": {
-                                "elicitation": "Elicit.Slot.1502394986217.371624804882"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "delegationStrategy": "ALWAYS"
-        },
-        "prompts": [
-            {
-                "id": "Elicit.Slot.1502394986217.371624804882",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "Ich heiße Alexa."
-                    }
-                ]
+        "interfaces": [],
+        "regions": {
+          "NA": {
+            "endpoint": {
+              "uri": "arn:aws:lambda:us-east-1:836743544584:function:a35bcd09-dbea-457a-af59-88a1db6d1f20:Release_0"
             }
-        ]
+          },
+          "EU": {
+            "endpoint": {
+              "uri": "arn:aws:lambda:eu-west-1:836743544584:function:a35bcd09-dbea-457a-af59-88a1db6d1f20:Release_0"
+            }
+          },
+          "FE": {
+            "endpoint": {
+              "uri": "arn:aws:lambda:us-west-2:836743544584:function:a35bcd09-dbea-457a-af59-88a1db6d1f20:Release_0"
+            }
+          }
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "publishingInformation": {
+      "category": "KNOWLEDGE_AND_TRIVIA",
+      "distributionCountries": [],
+      "isAvailableWorldwide": true,
+      "locales": {
+        "de-DE": {
+          "name": "Alexa Voice Adventure"
+        }
+      },
+      "testingInstructions": "Sample Testing Instructions."
     }
+  }
 }
