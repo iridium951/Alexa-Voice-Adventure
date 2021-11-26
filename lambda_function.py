@@ -95,23 +95,6 @@ class NoIntentHandler(AbstractRequestHandler):
                 .response
         )        
 
-class WhatsappNachrichtHandler(AbstractRequestHandler):
-    """Handler for WhatsappNachricht Intent."""
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return ask_utils.is_intent_name("WhatsappNachricht")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speak_output = "Du verschickst noch eine Whatsapp Nachricht. Auch hier bleibt nur ein einsames graues Häkchen stehen. Willst du etwas anderes versuchen?"
-        
-        return (
-            handler_input.response_builder
-                .speak(speak_output)
-                .ask(speak_output)
-                .response
-        )
-
 class AnrufenHandler(AbstractRequestHandler):
     """Handler for Anrufen Intent."""
     def can_handle(self, handler_input):
@@ -278,7 +261,6 @@ class aufschneiden_und_fliehenHandler(AbstractRequestHandler):
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .ask(speak_output)
                 .response
         )
 
@@ -388,7 +370,6 @@ sb.add_request_handler(LaunchRequestHandler())
 sb.add_request_handler(get_nameHandler())
 sb.add_request_handler(YesIntentHandler())
 sb.add_request_handler(NoIntentHandler())
-sb.add_request_handler(WhatsappNachrichtHandler())
 sb.add_request_handler(AnrufenHandler())
 sb.add_request_handler(zu_erik_nach_hause_gehenHandler())
 sb.add_request_handler(SMSHandler())
@@ -407,5 +388,4 @@ sb.add_request_handler(IntentReflectorHandler()) # make sure IntentReflectorHand
 sb.add_exception_handler(CatchAllExceptionHandler())
 
 lambda_handler = sb.lambda_handler()
-
 
