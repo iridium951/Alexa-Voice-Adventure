@@ -7,6 +7,19 @@
 import logging
 import ask_sdk_core.utils as ask_utils
 
+# initialize persistence adapter
+import os
+import boto3
+from ask_sdk_core.skill_builder import CustomSkillBuilder
+from ask_sdk_dynamodb.adapter import DynamoDbAdapter
+
+# initialize persistence adapter
+ddb_region = os.environ.get('DYNAMODB_PERSISTENCE_REGION')
+ddb_table_name = os.environ.get('DYNAMODB_PERSISTENCE_TABLE_NAME')
+
+ddb_resource = boto3.resource('dynamodb', region_name=ddb_region)
+dynamodb_adapter = DynamoDbAdapter(table_name=ddb_table_name, create_table=False, dynamodb_resource=ddb_resource)
+
 from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
 from ask_sdk_core.dispatch_components import AbstractExceptionHandler
@@ -17,6 +30,42 @@ from ask_sdk_model import Response
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
+
+
+def handle(self, handler_input):
+    # type: (HandlerInput) -> Response
+    attr = handler_input.attributes_manager.persistent_attributes
+    if not attr:
+        attr['counter'] = 0
+        attr['state'] = 'ENDED'
+
+    handler_input.attributes_manager.session_attributes = attr
+
+    handler_input.attributes_manager.save_persistent_attributes()
+    speak_output = ("Welcome back. Your saved counter is {}. You can say Hello or Help?".format(attr["counter"]))
+    reprompt = "Say hello or help to start."
+    return (
+        handler_input.response_builder
+            .speak(speak_output)
+            .ask(reprompt)
+            .response
+    )
+
+def handle(self, handler_input):
+    # type: (HandlerInput) -> Response
+    session_attr = handler_input.attributes_manager.session_attributes
+    session_attr['state'] = "STARTED"
+    session_attr["counter"] += 1
+    handler_input.attributes_manager.persistent_attributes = session_attr
+    handler_input.attributes_manager.save_persistent_attributes()
+
+    speak_output = ("Hi there, Hello World! Your saved counter is {}.".format(session_attr["counter"]))
+    return (
+        handler_input.response_builder
+            .speak(speak_output)
+            # .ask("add a reprompt if you want to keep the session open for the user to respond")
+            .response
+    )    
 
 # RequestHandler
 
@@ -30,6 +79,12 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
+        
+        # extract persistent attributes, if they exist
+        attr = handler_input.attributes_manager.persistent_attributes
+        attributes_exist = ('name' in attr)
+        if attributes_exist:
+            name = attr['name']
         speak_output = "Willkommen zum Voice Adventure. Wie heißt du?"
         reprompt_text = "Ich heiße Alexa. Wie heißt du?"
 
@@ -49,10 +104,23 @@ class get_nameHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        slots = handler_input.request_envelope.request.intent.slots
-        name = slots["name"].value
         
-        speak_output = "Es ist schön dich kennenzulernen, {name}. Das Spiel funktioniert folgendermaßen. Ich werde dir eine Geschichte erzählen in der Du eine entscheidende Rolle spielst. Mit deinen Entscheidungen wirst du die Geschichte leiten. Bist du bereit in das Abenteuer einzutauchen?".format(name=name)
+        name = handler_input.request_envelope.request.intent.slots["name"].value
+        
+        if name:
+            speak_output = "Es ist schön dich kennenzulernen, {}. Das Spiel funktioniert folgendermaßen. Ich werde dir eine Geschichte erzählen in der Du eine entscheidende Rolle spielst. Mit deinen Entscheidungen wirst du die Geschichte leiten. Bist du bereit in das Abenteuer einzutauchen?".format(name)
+
+
+            name_attributes = {
+                'name': name,
+            }
+            attributes_manager = handler_input.attributes_manager
+            attributes_manager.persistent_attributes = name_attributes
+            attributes_manager.save_persistent_attributes()
+        else:
+            speak_output = "Es tut mir leid. Ich kenne deinen Namen nicht."
+         
+        #speak_output = "Es ist schön dich kennenzulernen, {name}. Das Spiel funktioniert folgendermaßen. Ich werde dir eine Geschichte erzählen in der Du eine entscheidende Rolle spielst. Mit deinen Entscheidungen wirst du die Geschichte leiten. Bist du bereit in das Abenteuer einzutauchen?".format(name=name)
 
         return (
             handler_input.response_builder
@@ -69,7 +137,7 @@ class YesIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Guten Morgen, du und dein bester Freund Erik Schneider sind Studenten an einer Hochschule. Seit Wochen arbeitet ihr fleißig an einem Gruppenprojekt, welches einen großen Teil der Endnote ausmachen wird. Ihr kommuniziert regelmäßig in der Schule... aber aus unerklärlichen Gründen ist er heute nicht aufgetaucht. Daher entscheidest du dich ihn zu kontaktieren. Willst du Erik auf Whatsapp anschreiben? Erik anrufen? an Erik eine SMS schreiben? Oder zu Eriks Haus gehen?"
+        speak_output = "Guten Morgen, du und dein bester Freund Erik Schneider sind Studenten an einer Hochschule. Seit Wochen arbeitet ihr fleißig an einem Gruppenprojekt, welches einen großen Teil der Endnote ausmachen wird. Ihr kommuniziert regelmäßig in der Schule... aber aus unerklärlichen Gründen ist er heute nicht aufgetaucht. Daher entscheidest du dich ihn zu kontaktieren. Willst du Erik anrufen? Erik eine SMS schreiben? Oder zu Erik nach Hause gehen?"
         
         return (
             handler_input.response_builder
@@ -137,7 +205,7 @@ class SMSHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Du schreibst eine SMS an Erik. Was ist los, bro? Ich kann dich schon seit Stunden nicht erreichen. Schreib zurück sobald du kannst.  Das Handy vibriert, plötzlich bekommst du eine Nachricht von Erik. Während ihr miteinander schreibt, erfährst du, dass er sich irgendwo im Nirgendwo befindet und er aber froh ist mit dir zu schreiben. Du frägst ihn was das Letzte ist an was er sich erinnern kann. Erik antwortete: im Keller habe ich... AAA da vorne ist ein Grizzly Bär. Was soll ich tun?! Willst du Erik schreiben, dass er wegrennen, kämpfen oder still stehen soll?"
+        speak_output = "Du schreibst eine SMS an Erik. Was ist los, Kumpel? Ich kann dich schon seit Stunden nicht erreichen. Schreib zurück sobald du kannst.  Das Handy vibriert, plötzlich bekommst du eine Nachricht von Erik. Während ihr miteinander schreibt, erfährst du, dass er sich irgendwo im Nirgendwo befindet und er aber froh ist mit dir zu schreiben. Du frägst ihn was das Letzte ist an was er sich erinnern kann. Du frägst ihn was das Letzte ist an was er sich erinnern kann. Erik antwortete: Ich habe im Keller...AAAAAA, da vorne ist ein Grizzly Bär. Was soll ich tun, {name}?! Willst du Erik schreiben, dass er wegrennen, kämpfen oder still stehen soll?"
         
         return (
             handler_input.response_builder
@@ -171,7 +239,7 @@ class kaempfenHandler(AbstractRequestHandler) :
     
     def handle(self, handler_input) :
         # type: (HandlerInput) -> Response
-        speak_output = "Erik findet zu seiner Rechten einen großen Stein. Er nimmt den Stein, holt aus und wirft ihn mit aller Kraft auf den Bären.  Wutentbrannt läuft der Bär auf Erik zu. Willst du es erneut versuchen?"
+        speak_output = "Erik findet zu seiner Rechten einen großen Stein. Er nimmt den Stein, holt aus und wirft ihn mit aller Kraft auf den Bären. Wutentbrannt läuft der Bär auf Erik zu. Game Over. Willst du es erneut versuchen?"
         
         return (
             handler_input.response_builder
@@ -188,7 +256,7 @@ class still_stehenHandler(AbstractRequestHandler) :
     
     def handle(self, handler_input) :
         # type: (HandlerInput) -> response
-        speak_output = "Der Bär schaut Erik an und schnüffelt ein wenig an Eriks Beinen. Unbeeindruckt zieht der Bär an Erik vorbei und verschwindet im Gebüsch. Erik bedankt sich bei dir für den Tipp. Nun stellt sich die Frage was er machen soll. Willst du Erik schreiben, dass er tiefer in den Wald, oder versuchen soll, aus dem Wald rauszukommen."
+        speak_output = "Der Bär schaut Erik an und schnüffelt ein wenig an Eriks Beinen. Unbeeindruckt zieht der Bär an Erik vorbei und verschwindet im Gebüsch. Erik bedankt sich bei dir für den Tipp. Nun stellt sich die Frage was er machen soll. Willst du Erik schreiben, dass er Camp bauen soll, oder versuchen soll, aus dem Wald rauszukommen?."
         
         return (
             handler_input.response_builder
@@ -205,7 +273,7 @@ class aus_dem_waldHandler(AbstractRequestHandler) :
     
     def handle(self, handler_input) :
         # type: (HandlerInput) -> response
-        speak_output = "Erik muss dir beichten, dass er einen schlechten Orientierungssinn hat. Er läuft über Fluss und Wälder während er mit dir schreibt. Als du ihn frägst was er eigentlich vorhin sagen wollte, erinnert er sich, dass er  im Keller eine antike Taschenuhr gefunden hat, die er öffnete. Das nächste, woran er sich erinnert ist, dass er plötzlich im Wald war. Daraufhin rätst du ihm, die Uhr genauer anzuschauen und zu öffnen. Ein paar Minuten später ruft dich dein bester Freund an und teilt dir mit, dass er wieder zu Hause im Keller ist.  Happy End"
+        speak_output = "Erik muss dir beichten, dass er einen schlechten Orientierungssinn hat. Er läuft über Fluss und Wälder während er mit dir schreibt. Als du ihn frägst was er eigentlich vorhin sagen wollte, erinnert er sich, dass er  im Keller eine antike Taschenuhr gefunden hat. Das nächste, woran er sich erinnert ist, dass er plötzlich im Wald war. Daraufhin rätst du ihm, die Uhr genauer anzuschauen und zu öffnen. Ein paar Minuten später ruft dich dein bester Freund an und teilt dir mit, dass er wieder zu Hause im Keller ist. Happy End"
         
         return (
             handler_input.response_builder
@@ -239,7 +307,7 @@ class abwartenHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Nach kurzer Zeit versammeln sich die Waldbewohner vor dem Käfig, binden ihn an einem Pfahl und bringen ihn zum Feuer. Willst du es erneut versuchen?"
+        speak_output = "Nach kurzer Zeit versammeln sich die Waldbewohner vor dem Käfig, binden Erik an einem Pfahl und bringen ihn zum Feuer. Willst du es erneut versuchen?"
 
         return (
             handler_input.response_builder
@@ -256,7 +324,7 @@ class aufschneiden_und_fliehenHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Erik rennt schnell ins Gebüsch. Nach einer Weile muss er dir beichten, dass er einen schlechten Orientierungssinn hat. Er läuft über Fluss und Wälder während er mit dir schreibt. Als du ihn frägst, was er eigentlich vorhin sagen wollte, erinnert er sich, dass er  im Keller eine antike Taschenuhr gefunden hat, die er öffnete. Das nächste, woran er sich erinnert ist, dass er plötzlich im Wald war. Daraufhin rätst du ihm, die Uhr genauer anzuschauen und zu öffnen. Ein paar Minuten später ruft dich dein bester Freund an und teilt dir mit, dass er wieder zu Hause im Keller ist. Happy End"
+        speak_output = "Erik rennt schnell ins Gebüsch. Nach einer Weile muss er dir beichten, dass er einen schlechten Orientierungssinn hat. Er läuft über Fluss und Wälder während er mit dir schreibt. Als du ihn frägst, was er eigentlich vorhin sagen wollte, erinnert er sich, dass er  im Keller eine antike Taschenuhr gefunden hat. Das nächste, woran er sich erinnert ist, dass er plötzlich im Wald war. Daraufhin rätst du ihm, die Uhr genauer anzuschauen und zu öffnen. Ein paar Minuten später ruft dich dein bester Freund an und teilt dir mit, dass er wieder zu Hause im Keller ist. Happy End"
 
         return (
             handler_input.response_builder
@@ -364,7 +432,17 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 # defined are included below. The order matters - they're processed top to bottom.
 
 
-sb = SkillBuilder()
+sb = CustomSkillBuilder(persistence_adapter = dynamodb_adapter)
+
+sb.add_request_handler(LaunchRequestHandler())
+sb.add_request_handler(CancelOrStopIntentHandler())
+sb.add_request_handler(SessionEndedRequestHandler())
+#
+#other request handlers
+#
+sb.add_exception_handler(CatchAllExceptionHandler())
+
+lambda_handler = sb.lambda_handler()
 
 sb.add_request_handler(LaunchRequestHandler())
 sb.add_request_handler(get_nameHandler())
