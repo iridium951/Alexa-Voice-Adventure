@@ -20,18 +20,6 @@
           "samples": []
         },
         {
-          "name": "WhatsappNachricht",
-          "slots": [],
-          "samples": [
-            "Whatsapp schreiben",
-            "auf Whatsapp anschreiben",
-            "Whatsapp Nachricht schreiben",
-            "Whatsapp Nachricht",
-            "Whatsapp",
-            "Ich möchte Erik auf Whatsapp anschreiben"
-          ]
-        },
-        {
           "name": "Anrufen",
           "slots": [],
           "samples": [
@@ -45,6 +33,7 @@
           "name": "SMS",
           "slots": [],
           "samples": [
+            "Nachricht schreiben",
             "Handy Nachricht schreiben",
             "SMS nachricht schreiben",
             "SMS",
@@ -110,6 +99,8 @@
           "name": "still_stehen",
           "slots": [],
           "samples": [
+            "still stehen",
+            "ruhig stehen",
             "beweg dich nicht",
             "stehen bleiben",
             "ruhig sein",
@@ -120,12 +111,6 @@
           "name": "camp_bauen",
           "slots": [],
           "samples": [
-            "tiefer hinein",
-            "tiefer",
-            "rein",
-            "tiefer rein",
-            "in den wald",
-            "tiefer in den wald",
             "campen",
             "camp bauen",
             "lager bauen",
@@ -140,6 +125,7 @@
           "name": "aus_dem_wald",
           "slots": [],
           "samples": [
+            "aus dem wald rauskommen",
             "weg",
             "aus dem wald",
             "aus dem wald hinaus",
@@ -154,8 +140,7 @@
           "name": "abwarten",
           "slots": [],
           "samples": [
-            "diplomatie",
-            "kommunizieren",
+            "erstmal abwarten",
             "abwarten",
             "warten"
           ]
@@ -164,6 +149,8 @@
           "name": "aufschneiden_und_fliehen",
           "slots": [],
           "samples": [
+            "Ranken an der Tür aufschneiden und fliehen",
+            "Ranken an der Tür aufschneiden",
             "entfesseln",
             "entfliehen",
             "zerschneiden",
@@ -181,6 +168,7 @@
           "name": "YesIntent",
           "slots": [],
           "samples": [
+            "yes",
             "ja bitte",
             "ja"
           ]
@@ -189,6 +177,7 @@
           "name": "NoIntent",
           "slots": [],
           "samples": [
+            "no",
             "nö",
             "Nein danke",
             "Ne",
@@ -231,5 +220,5 @@
       }
     ]
   },
-  "version": "20"
+  "version": "23"
 }
