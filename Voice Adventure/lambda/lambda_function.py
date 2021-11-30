@@ -119,8 +119,6 @@ class get_nameHandler(AbstractRequestHandler):
             attributes_manager.save_persistent_attributes()
         else:
             speak_output = "Es tut mir leid. Ich kenne deinen Namen nicht."
-         
-        #speak_output = "Es ist schön dich kennenzulernen, {name}. Das Spiel funktioniert folgendermaßen. Ich werde dir eine Geschichte erzählen in der Du eine entscheidende Rolle spielst. Mit deinen Entscheidungen wirst du die Geschichte leiten. Bist du bereit in das Abenteuer einzutauchen?".format(name=name)
 
         return (
             handler_input.response_builder
@@ -466,4 +464,3 @@ sb.add_request_handler(IntentReflectorHandler()) # make sure IntentReflectorHand
 sb.add_exception_handler(CatchAllExceptionHandler())
 
 lambda_handler = sb.lambda_handler()
-
