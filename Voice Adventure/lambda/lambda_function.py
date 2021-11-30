@@ -203,7 +203,7 @@ class SMSHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Du schreibst eine SMS an Erik. Was ist los, Kumpel? Ich kann dich schon seit Stunden nicht erreichen. Schreib zurück sobald du kannst.  Das Handy vibriert, plötzlich bekommst du eine Nachricht von Erik. Während ihr miteinander schreibt, erfährst du, dass er sich irgendwo im Nirgendwo befindet und er aber froh ist mit dir zu schreiben. Du frägst ihn was das Letzte ist an was er sich erinnern kann. Du frägst ihn was das Letzte ist an was er sich erinnern kann. Erik antwortete: Ich habe im Keller...AAAAAA, da vorne ist ein Grizzly Bär. Was soll ich tun?! Willst du Erik schreiben, dass er wegrennen, kämpfen oder still stehen soll?"
+        speak_output = "Du schreibst eine SMS an Erik. Was ist los, Kumpel? Ich kann dich schon seit Stunden nicht erreichen. Schreib zurück sobald du kannst.  Das Handy vibriert, plötzlich bekommst du eine Nachricht von Erik. Während ihr miteinander schreibt, erfährst du, dass er sich irgendwo im Nirgendwo befindet und er aber froh ist mit dir zu schreiben. Du frägst ihn was das Letzte ist an was er sich erinnern kann. Erik antwortete: Ich habe im Keller...AAAAAA, da vorne ist ein Grizzly Bär. Was soll ich tun?! Willst du Erik schreiben, dass er wegrennen, kämpfen oder still stehen soll?"
         
         return (
             handler_input.response_builder
