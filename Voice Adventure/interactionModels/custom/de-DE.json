@@ -1,224 +1,222 @@
 {
-  "interactionModel": {
-    "languageModel": {
-      "invocationName": "voice adventure",
-      "intents": [
-        {
-          "name": "AMAZON.RepeatIntent",
-          "samples": []
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "voice adventure",
+            "intents": [
+                {
+                    "name": "AMAZON.RepeatIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "Anrufen",
+                    "slots": [],
+                    "samples": [
+                        "Erik anrufen",
+                        "Anruf",
+                        "anrufen",
+                        "Ich möchte Erik anrufen"
+                    ]
+                },
+                {
+                    "name": "SMS",
+                    "slots": [],
+                    "samples": [
+                        "Nachricht schreiben",
+                        "Handy Nachricht schreiben",
+                        "SMS nachricht schreiben",
+                        "SMS",
+                        "SMS schicken",
+                        "SMS schreiben",
+                        "Ich möchte an Erik eine SMS schreiben",
+                        "Ich möchte Erik eine SMS schicken"
+                    ]
+                },
+                {
+                    "name": "zu_erik_nach_hause_gehen",
+                    "slots": [],
+                    "samples": [
+                        "zu erik nach hause",
+                        "erik besuchen",
+                        "zu eriks haus gehen",
+                        "zu erik gehen",
+                        "nach Hause",
+                        "zu Erik",
+                        "Zu Erik nach Hause gehen"
+                    ]
+                },
+                {
+                    "name": "get_name",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "AMAZON.FirstName"
+                        }
+                    ],
+                    "samples": [
+                        "Mein Name ist {name}",
+                        "ich heiße {name}",
+                        "{name} "
+                    ]
+                },
+                {
+                    "name": "wegrennen",
+                    "slots": [],
+                    "samples": [
+                        "wegrennen",
+                        "renn",
+                        "lauf",
+                        "laufen",
+                        "rennen"
+                    ]
+                },
+                {
+                    "name": "kaempfen",
+                    "slots": [],
+                    "samples": [
+                        "sich verteidigen",
+                        "den bär bekämpfen",
+                        "bekämpfen",
+                        "den bär angreifen",
+                        "angreifen",
+                        "kaempfen",
+                        "verteidigen"
+                    ]
+                },
+                {
+                    "name": "still_stehen",
+                    "slots": [],
+                    "samples": [
+                        "still stehen",
+                        "ruhig stehen",
+                        "beweg dich nicht",
+                        "stehen bleiben",
+                        "ruhig sein",
+                        "stehen"
+                    ]
+                },
+                {
+                    "name": "camp_bauen",
+                    "slots": [],
+                    "samples": [
+                        "campen",
+                        "camp bauen",
+                        "lager bauen",
+                        "camp aufbauen",
+                        "lager aufbauen",
+                        "aufbauen",
+                        "lager",
+                        "camp"
+                    ]
+                },
+                {
+                    "name": "aus_dem_wald",
+                    "slots": [],
+                    "samples": [
+                        "aus dem wald rauskommen",
+                        "weg",
+                        "aus dem wald",
+                        "aus dem wald hinaus",
+                        "hinaus",
+                        "aus dem wald heraus",
+                        "aus dem wald raus",
+                        "raus aus dem wald",
+                        "raus"
+                    ]
+                },
+                {
+                    "name": "abwarten",
+                    "slots": [],
+                    "samples": [
+                        "erstmal abwarten",
+                        "abwarten",
+                        "warten"
+                    ]
+                },
+                {
+                    "name": "aufschneiden_und_fliehen",
+                    "slots": [],
+                    "samples": [
+                        "Ranken an der Tür aufschneiden und fliehen",
+                        "Ranken an der Tür aufschneiden",
+                        "entfesseln",
+                        "entfliehen",
+                        "zerschneiden",
+                        "entkommen",
+                        "schneiden",
+                        "aufschneiden",
+                        "fliehen"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "YesIntent",
+                    "slots": [],
+                    "samples": [
+                        "yes",
+                        "ja bitte",
+                        "ja"
+                    ]
+                },
+                {
+                    "name": "NoIntent",
+                    "slots": [],
+                    "samples": [
+                        "no",
+                        "nö",
+                        "Nein danke",
+                        "Ne",
+                        "Nein"
+                    ]
+                }
+            ],
+            "types": []
         },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
+        "dialog": {
+            "intents": [
+                {
+                    "name": "get_name",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "AMAZON.FirstName",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1502394986217.371624804882"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
         },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": []
-        },
-        {
-          "name": "Anrufen",
-          "slots": [],
-          "samples": [
-            "Erik anrufen",
-            "Anruf",
-            "anrufen",
-            "Ich möchte Erik anrufen"
-          ]
-        },
-        {
-          "name": "SMS",
-          "slots": [],
-          "samples": [
-            "Nachricht schreiben",
-            "Handy Nachricht schreiben",
-            "SMS nachricht schreiben",
-            "SMS",
-            "SMS schicken",
-            "SMS schreiben",
-            "Ich möchte an Erik eine SMS schreiben",
-            "Ich möchte Erik eine SMS schicken"
-          ]
-        },
-        {
-          "name": "zu_erik_nach_hause_gehen",
-          "slots": [],
-          "samples": [
-            "zu erik nach hause",
-            "erik besuchen",
-            "zu eriks haus gehen",
-            "zu erik gehen",
-            "nach Hause",
-            "zu Erik",
-            "Zu Erik nach Hause gehen"
-          ]
-        },
-        {
-          "name": "get_name",
-          "slots": [
+        "prompts": [
             {
-              "name": "name",
-              "type": "AMAZON.FirstName"
+                "id": "Elicit.Slot.1502394986217.371624804882",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Ich heiße Alexa."
+                    }
+                ]
             }
-          ],
-          "samples": [
-            "Mein Name ist {name}",
-            "Meine Name ist {name}",
-            "ich heiße {name}",
-            "{name} "
-          ]
-        },
-        {
-          "name": "wegrennen",
-          "slots": [],
-          "samples": [
-            "wegrennen",
-            "renn",
-            "lauf",
-            "laufen",
-            "rennen"
-          ]
-        },
-        {
-          "name": "kaempfen",
-          "slots": [],
-          "samples": [
-            "sich verteidigen",
-            "den bär bekämpfen",
-            "bekämpfen",
-            "den bär angreifen",
-            "angreifen",
-            "kaempfen",
-            "verteidigen"
-          ]
-        },
-        {
-          "name": "still_stehen",
-          "slots": [],
-          "samples": [
-            "still stehen",
-            "ruhig stehen",
-            "beweg dich nicht",
-            "stehen bleiben",
-            "ruhig sein",
-            "stehen"
-          ]
-        },
-        {
-          "name": "camp_bauen",
-          "slots": [],
-          "samples": [
-            "campen",
-            "camp bauen",
-            "lager bauen",
-            "camp aufbauen",
-            "lager aufbauen",
-            "aufbauen",
-            "lager",
-            "camp"
-          ]
-        },
-        {
-          "name": "aus_dem_wald",
-          "slots": [],
-          "samples": [
-            "aus dem wald rauskommen",
-            "weg",
-            "aus dem wald",
-            "aus dem wald hinaus",
-            "hinaus",
-            "aus dem wald heraus",
-            "aus dem wald raus",
-            "raus aus dem wald",
-            "raus"
-          ]
-        },
-        {
-          "name": "abwarten",
-          "slots": [],
-          "samples": [
-            "erstmal abwarten",
-            "abwarten",
-            "warten"
-          ]
-        },
-        {
-          "name": "aufschneiden_und_fliehen",
-          "slots": [],
-          "samples": [
-            "Ranken an der Tür aufschneiden und fliehen",
-            "Ranken an der Tür aufschneiden",
-            "entfesseln",
-            "entfliehen",
-            "zerschneiden",
-            "entkommen",
-            "schneiden",
-            "aufschneiden",
-            "fliehen"
-          ]
-        },
-        {
-          "name": "AMAZON.NavigateHomeIntent",
-          "samples": []
-        },
-        {
-          "name": "YesIntent",
-          "slots": [],
-          "samples": [
-            "yes",
-            "ja bitte",
-            "ja"
-          ]
-        },
-        {
-          "name": "NoIntent",
-          "slots": [],
-          "samples": [
-            "no",
-            "nö",
-            "Nein danke",
-            "Ne",
-            "Nein"
-          ]
-        }
-      ],
-      "types": []
-    },
-    "dialog": {
-      "intents": [
-        {
-          "name": "get_name",
-          "confirmationRequired": false,
-          "prompts": {},
-          "slots": [
-            {
-              "name": "name",
-              "type": "AMAZON.FirstName",
-              "elicitationRequired": true,
-              "confirmationRequired": false,
-              "prompts": {
-                "elicitation": "Elicit.Slot.1502394986217.371624804882"
-              }
-            }
-          ]
-        }
-      ],
-      "delegationStrategy": "ALWAYS"
-    },
-    "prompts": [
-      {
-        "id": "Elicit.Slot.1502394986217.371624804882",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "Ich heiße Alexa."
-          }
         ]
-      }
-    ]
-  },
-  "version": "23"
+    }
 }
