@@ -1,19 +1,43 @@
-Wilkommen zur start-team-01 wiki!
+![1](https://user-images.githubusercontent.com/93767898/144522574-2b965b1a-0d97-426e-8b9e-9120221d566b.jpg)
+# Start-Team-01 Voice Adventure  
+Willkommen auf der Wiki Page des Voice Adventure Teams. Hier wird der gesamte Arbeitsprozess vom Erstellen der Idee, Coding bis hin zu Designs der Skill-Icons dokumentiert.
 
-# Interaktive Voice Story: Alexa Voice Interface
+### Einführung Voice Adventure
+Weshalb kann Alexa so wenig? Warum kann der Sprachassistent nur einfache Befehle ausführen?
+Wie wäre es mit einer interaktiven Geschichte, die Alexa moderiert? Kinder verbringen ohnehin sehr viel Zeit am Computer, weshalb also nicht diese Zeit für etwas sinnvolles nutzen? Wie zum Beispiel die Kreativität von Kindern und Jugendlichen zu fördern. Wenn möglich gar die Freude an einem Buch zu finden. Das Hörbuch Voice Adventure ist daher unsere Idee die, Kindern/Jugendlichen mehr mit den Thema Geschichten und Erzählungen vertraut zu machen.
 
-## Anlass
+### Kick Off
+Die Teammitglieder fanden sich aufgrund der gemeinsamen Idee zusammen. Daraus bildeten wir ein Team um gemeinnützige Arbeit zu verrichten. Wir machten uns zur Aufgabe einen Mehrwert aus dieser Arbeit zu erzielen und nicht unsere Arbeit bloß als Abgabe einer Arbeit zu betrachten.
 
-Der Anlass für dieses Projekt ist das Projektmodul ‚Designing Voice User Interfaces‘, welches ein Teil des interdisziplinären Studiengangs Informatik und Design an der Hochschule München ist.
+### Herangehen und Lösen der Probleme
+Probleme gab es oft beim Coden, diese konnten wir aber oftmals durch einfache Recherche beseitigen. Manchmal mussten wir feststellen, dass wir weder das Know-how noch die Zeit hatten um all unsere Ideen in den Skill zu Implementieren. Daher einigten wir uns auf das Notwendigste was getan werden musste.
 
-Im Laufe des ersten Semesters wird ein Prototyp gebaut, mit dem Menschen mithilfe der Sprache interagieren können. Das Ergebniss der Arbeit wird am 10. Dezember 2021, im Rahmen des Festivals für Kunst & Forschung in Bayern (Hi!A), Interessierten präsentiert. Die Voice Interfaces können in der Zeit auch interaktiv ausprobiert werden.
+### Prototyp
+Den ersten Prototypen wurde auf der Website "Voiceflow" erstellt, dieser wurde oft überarbeitet und die aktuellste Version ist hier auf der Wiki zu finden.
 
-## Übersicht
+### Ergebnis
+(folgt noch)
 
-Unser Alexa Skill ist eine interaktive Voice Geschichte. 
-Unser Projekt ermöglicht ein spannendes, interaktives Erlebnis.
-Tauche ein in unsere Welt und begebe dich auf ein Abenteuer mit Erik Schneider.
+### **Infos zur Navigation:**
 
+In der "Icons" Sidebar, sind die Designs aller Teammitglieder zu finden.
 
+In der Sidebar "Sprint 0", ist unsere Projektidee, Konzept der Idee und auch eine Storyboard zu finden.
 
-start-team-01 created by GitHub Classroom
+In der Sidebar "Sprint 1", ist ein Link zum Prototypen, eine Dialoggestaltung und eine Dokumentation zu finden.
+
+In der Sidebar "Readme", ist unsere Read me zu finden.
+
+### **Teammitglieder:**
+
+ **Irina Reich**
+Informatik und Design, Munich, Germany
+
+ **Caitlin Phitheta**
+Informatik und Design, Munich, Germany
+
+ **Anastasia Shulman**
+Informatik und Design, Munich, Germany
+
+ **Niklas Evmenenko**
+Informatik und Design, Munich, Germany
