@@ -16,7 +16,7 @@ Probleme gab es oft beim Coden, diese konnten wir aber oftmals durch einfache Re
 Den ersten Prototypen wurde auf der Website "Voiceflow" erstellt, dieser wurde oft überarbeitet und die aktuellste Version ist hier auf der Wiki zu finden.
 
 ### Anlass
-
+Das Ergebniss der Arbeit wird am 10. Dezember 2021, im Rahmen des Festivals für Kunst & Forschung in Bayern (Hi!A), Interessenten präsentiert. Die Voice Interfaces können in der Zeit auch interaktiv ausprobiert werden.
 
 ### Ergebnis
 (folgt noch)
