@@ -1,6 +1,6 @@
 ![1](https://user-images.githubusercontent.com/93767898/144522574-2b965b1a-0d97-426e-8b9e-9120221d566b.jpg)
 # Start-Team-01 Voice Adventure  
-Willkommen auf der Wiki Page des Voice Adventure Teams. Hier wird der gesamte Arbeitsprozess vom Erstellen der Idee, Coding bis hin zu Designs der Skill-Icons dokumentiert.
+Willkommen auf der Readme des Voice Adventure Teams. Hier wird der gesamte Arbeitsprozess vom Erstellen der Idee, Coding bis hin zu Designs der Skill-Icons dokumentiert.
 
 ### Einführung Voice Adventure
 Weshalb kann Alexa so wenig? Warum kann der Sprachassistent nur einfache Befehle ausführen?
@@ -14,6 +14,9 @@ Probleme gab es oft beim Coden, diese konnten wir aber oftmals durch einfache Re
 
 ### Prototyp
 Den ersten Prototypen wurde auf der Website "Voiceflow" erstellt, dieser wurde oft überarbeitet und die aktuellste Version ist hier auf der Wiki zu finden.
+
+### Anlass
+
 
 ### Ergebnis
 (folgt noch)
