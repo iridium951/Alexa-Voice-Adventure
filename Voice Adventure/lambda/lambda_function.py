@@ -135,8 +135,7 @@ class YesIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        x = "bruh"
-        speak_output = "Guten Morgen, {}, du und dein bester Freund Erik Schneider sind Studenten an einer Hochschule. Seit Wochen arbeitet ihr fleißig an einem Gruppenprojekt, welches einen großen Teil der Endnote ausmachen wird. Ihr kommuniziert regelmäßig in der Schule... aber aus unerklärlichen Gründen ist er heute nicht aufgetaucht. Daher entscheidest du dich ihn zu kontaktieren. Willst du Erik anrufen? Erik eine Nachricht schreiben? Oder zu Erik nach Hause gehen?".format(x)
+        speak_output = "Guten Morgen, du und dein bester Freund Erik Schneider sind Studenten an einer Hochschule. Seit Wochen arbeitet ihr fleißig an einem Gruppenprojekt, welches einen großen Teil der Endnote ausmachen wird. Ihr kommuniziert regelmäßig in der Schule... aber aus unerklärlichen Gründen ist er heute nicht aufgetaucht. Daher entscheidest du dich ihn zu kontaktieren. Willst du Erik anrufen? Erik eine Nachricht schreiben? Oder zu Erik nach Hause gehen?"
         
         return (
             handler_input.response_builder
