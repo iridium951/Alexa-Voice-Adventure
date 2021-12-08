@@ -135,7 +135,8 @@ class YesIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Guten Morgen, du und dein bester Freund Erik Schneider sind Studenten an einer Hochschule. Seit Wochen arbeitet ihr fleißig an einem Gruppenprojekt, welches einen großen Teil der Endnote ausmachen wird. Ihr kommuniziert regelmäßig in der Schule... aber aus unerklärlichen Gründen ist er heute nicht aufgetaucht. Daher entscheidest du dich ihn zu kontaktieren. Willst du Erik anrufen? Erik eine SMS schreiben? Oder zu Erik nach Hause gehen?"
+        x = "bruh"
+        speak_output = "Guten Morgen, {}, du und dein bester Freund Erik Schneider sind Studenten an einer Hochschule. Seit Wochen arbeitet ihr fleißig an einem Gruppenprojekt, welches einen großen Teil der Endnote ausmachen wird. Ihr kommuniziert regelmäßig in der Schule... aber aus unerklärlichen Gründen ist er heute nicht aufgetaucht. Daher entscheidest du dich ihn zu kontaktieren. Willst du Erik anrufen? Erik eine Nachricht schreiben? Oder zu Erik nach Hause gehen?".format(x)
         
         return (
             handler_input.response_builder
@@ -169,7 +170,7 @@ class AnrufenHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Du findest Erik in deinen Kontakten und drückst die Anruf-Taste. Nach einer kurzer Pause kommt die Telefonansage. Ihr gewünschter Gesprächspartner ist zurzeit leider nicht erreichbar. Willst du etwas anderes versuchen?"
+        speak_output = "Du findest Erik in deinen Kontakten und drückst die Anruf-Taste. Nach einer kurzer Pause kommt die Telefonansage. Ihr gewünschter Gesprächspartner ist zurzeit leider nicht erreichbar. Willst du etwas anderes versuchen? Du kannst zu Erik nach Hause gehen oder ihm eine Nachricht schreiben."
         
         return (
             handler_input.response_builder
@@ -186,7 +187,7 @@ class zu_erik_nach_hause_gehenHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Während du mit deinem Fahrrad zu Erik nach Hause gefahren bist, hatte Erik einen tapferen Kampf gegen einen Grizzly Bär geliefert und verstarb. Game over. Willst du es erneut versuchen?"
+        speak_output = "Während du mit deinem Fahrrad zu Erik nach Hause gefahren bist, hatte Erik einen tapferen Kampf gegen einen Grizzly Bär geliefert und verstarb. Game over. Willst du es erneut versuchen? Du kannst Erik anrufen oder ihm eine Nachricht schreiben."
         
         return (
             handler_input.response_builder
@@ -203,7 +204,7 @@ class SMSHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Du schreibst eine SMS an Erik. Was ist los, Kumpel? Ich kann dich schon seit Stunden nicht erreichen. Schreib zurück sobald du kannst.  Das Handy vibriert, plötzlich bekommst du eine Nachricht von Erik. Während ihr miteinander schreibt, erfährst du, dass er sich irgendwo im Nirgendwo befindet und er aber froh ist mit dir zu schreiben. Du frägst ihn was das Letzte ist an was er sich erinnern kann. Erik antwortete: Ich habe im Keller...AAAAAA, da vorne ist ein Grizzly Bär. Was soll ich tun?! Willst du Erik schreiben, dass er wegrennen, kämpfen oder still stehen soll?"
+        speak_output = "Du schreibst eine Nachricht an Erik. Was ist los, Kumpel? Ich kann dich schon seit Stunden nicht erreichen. Schreib zurück sobald du kannst.  Das Handy vibriert, plötzlich bekommst du eine Nachricht von Erik. Während ihr miteinander schreibt, erfährst du, dass er sich irgendwo im Nirgendwo befindet und er aber froh ist mit dir zu schreiben. Du frägst ihn was das Letzte ist an was er sich erinnern kann. Erik antwortete: Ich habe im Keller...AAAAAA, da vorne ist ein Grizzly Bär. Was soll ich tun?! Willst du Erik schreiben, dass er wegrennen, kämpfen oder still stehen soll?"
         
         return (
             handler_input.response_builder
@@ -220,7 +221,7 @@ class wegrennenHandler(AbstractRequestHandler) :
     
     def handle(self, handler_input) :
         # type: (HandlerInput) -> Response
-        speak_output = "Erik läuft mitten durch den Wald. Er sieht einen Fluss. Beim Versuch den Fluss zu durchqueren, rutscht er auf einem glatten Stein aus. Als er sich aufrappeln will, sieht er dem Bären direkt ins Gesicht. Game Over. Willst du es erneut versuchen?"
+        speak_output = "Erik läuft mitten durch den Wald. Er sieht einen Fluss. Beim Versuch den Fluss zu durchqueren, rutscht er auf einem glatten Stein aus. Als er sich aufrappeln will, sieht er dem Bären direkt ins Gesicht. Game Over. Willst du es erneut versuchen? Du kannst kämpfen oder still stehen."
         
         return (
             handler_input.response_builder
@@ -237,7 +238,7 @@ class kaempfenHandler(AbstractRequestHandler) :
     
     def handle(self, handler_input) :
         # type: (HandlerInput) -> Response
-        speak_output = "Erik findet zu seiner Rechten einen großen Stein. Er nimmt den Stein, holt aus und wirft ihn mit aller Kraft auf den Bären. Wutentbrannt läuft der Bär auf Erik zu. Game Over. Willst du es erneut versuchen?"
+        speak_output = "Erik findet zu seiner Rechten einen großen Stein. Er nimmt den Stein, holt aus und wirft ihn mit aller Kraft auf den Bären. Wutentbrannt läuft der Bär auf Erik zu. Game Over. Willst du es erneut versuchen? Du kannst wegrennen oder still stehen."
         
         return (
             handler_input.response_builder
@@ -305,7 +306,7 @@ class abwartenHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Nach kurzer Zeit versammeln sich die Waldbewohner vor dem Käfig, binden Erik an einem Pfahl und bringen ihn zum Feuer. Willst du es erneut versuchen?"
+        speak_output = "Nach kurzer Zeit versammeln sich die Waldbewohner vor dem Käfig, binden Erik an einem Pfahl und bringen ihn zum Feuer. Willst du es erneut versuchen? Du kannst noch die Ranken aufschneiden und fliehen."
 
         return (
             handler_input.response_builder
