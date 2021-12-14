@@ -21,16 +21,6 @@ Das Ergebniss der Arbeit wird am 10. Dezember 2021, im Rahmen des Festivals für
 ### Ergebnis
 (folgt noch)
 
-### **Infos zur Navigation:**
-
-In der "Icons" Sidebar, sind die Designs aller Teammitglieder zu finden.
-
-In der Sidebar "Sprint 0", ist unsere Projektidee, Konzept der Idee und auch eine Storyboard zu finden.
-
-In der Sidebar "Sprint 1", ist ein Link zum Prototypen, eine Dialoggestaltung und eine Dokumentation zu finden.
-
-In der Sidebar "Readme", ist unsere Read me zu finden.
-
 ### **Teammitglieder:**
 
  **Irina Reich**
