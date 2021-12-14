@@ -18,9 +18,6 @@ Die Teammitglieder fanden sich aufgrund der gemeinsamen Idee zusammen. Daraus bi
 ### Herangehen und Lösen der Probleme
 Probleme gab es oft beim Coden, diese konnten wir aber oftmals durch einfache Recherche beseitigen. Manchmal mussten wir feststellen, dass wir weder das Know-how noch die Zeit hatten um all unsere Ideen in den Skill zu Implementieren. Daher einigten wir uns auf das Notwendigste was getan werden musste.
 
-### Prototyp
-Der erste Prototyp wurde auf der Website "Voiceflow" erstellt, dieser wurde oft überarbeitet und die aktuellste Version ist hier auf der Wiki zu finden.
-
 ### Ergebnis
 (folgt noch)
 
