@@ -186,7 +186,7 @@ class zu_erik_nach_hause_gehenHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Während du mit deinem Fahrrad zu Erik nach Hause gefahren bist, hatte Erik einen tapferen Kampf gegen einen Grizzly Bär geliefert und verstarb. Game over. Willst du es erneut versuchen? Du kannst Erik anrufen oder ihm eine Nachricht schreiben."
+        speak_output = "Während du mit deinem Fahrrad zu Erik nach Hause gefahren bist, hatte Erik einen tapferen Kampf gegen einen Grizzly Bären geliefert und verstarb. Game over. Willst du es erneut versuchen? Du kannst Erik anrufen oder ihm eine Nachricht schreiben."
         
         return (
             handler_input.response_builder
@@ -254,7 +254,7 @@ class still_stehenHandler(AbstractRequestHandler) :
     
     def handle(self, handler_input) :
         # type: (HandlerInput) -> response
-        speak_output = "Der Bär schaut Erik an und schnüffelt ein wenig an Eriks Beinen. Unbeeindruckt zieht der Bär an Erik vorbei und verschwindet im Gebüsch. Erik bedankt sich bei dir für den Tipp. Nun stellt sich die Frage was er machen soll. Willst du Erik schreiben, dass er Camp bauen soll, oder versuchen soll, aus dem Wald rauszukommen?."
+        speak_output = "Der Bär schaut Erik an und schnüffelt ein wenig an Eriks Beinen. Unbeeindruckt zieht der Bär an Erik vorbei und verschwindet im Gebüsch. Erik bedankt sich bei dir für den Tipp. Nun stellt sich die Frage was er machen soll. Willst du Erik schreiben, dass er ein Camp bauen soll, oder versuchen soll, aus dem Wald rauszukommen?"
         
         return (
             handler_input.response_builder
@@ -305,7 +305,7 @@ class abwartenHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Nach kurzer Zeit versammeln sich die Waldbewohner vor dem Käfig, binden Erik an einem Pfahl und bringen ihn zum Feuer. Willst du es erneut versuchen? Du kannst noch die Ranken aufschneiden und fliehen."
+        speak_output = "Nach kurzer Zeit versammeln sich die Waldbewohner vor dem Käfig, binden Erik an einem Pfahl und bringen ihn zum Feuer. Game over. Willst du es erneut versuchen? Du kannst noch die Ranken aufschneiden und fliehen."
 
         return (
             handler_input.response_builder
