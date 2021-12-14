@@ -33,6 +33,7 @@
           "name": "SMS",
           "slots": [],
           "samples": [
+            "Nachricht",
             "Ich möchte Erik eine Nachricht schreiben",
             "Ich möchte Erik eine Nachricht schicken",
             "schreiben",
@@ -44,6 +45,7 @@
           "name": "zu_erik_nach_hause_gehen",
           "slots": [],
           "samples": [
+            "nach hause gehen",
             "zu erik nach hause",
             "erik besuchen",
             "zu eriks haus gehen",
@@ -82,6 +84,7 @@
           "name": "kaempfen",
           "slots": [],
           "samples": [
+            "kämpf",
             "kämpfen",
             "sich verteidigen",
             "den bär bekämpfen",
@@ -96,6 +99,9 @@
           "name": "still_stehen",
           "slots": [],
           "samples": [
+            "still",
+            "still bleiben",
+            "stillstehen",
             "still stehen",
             "ruhig stehen",
             "beweg dich nicht",
@@ -108,6 +114,7 @@
           "name": "camp_bauen",
           "slots": [],
           "samples": [
+            "bauen",
             "campen",
             "camp bauen",
             "lager bauen",
@@ -123,7 +130,6 @@
           "slots": [],
           "samples": [
             "aus dem wald rauskommen",
-            "weg",
             "aus dem wald",
             "aus dem wald hinaus",
             "hinaus",
@@ -146,6 +152,7 @@
           "name": "aufschneiden_und_fliehen",
           "slots": [],
           "samples": [
+            "Ranken aufschneiden",
             "Ranken an der Tür aufschneiden und fliehen",
             "Ranken an der Tür aufschneiden",
             "entfesseln",
@@ -217,5 +224,5 @@
       }
     ]
   },
-  "version": "27"
+  "version": "41"
 }
