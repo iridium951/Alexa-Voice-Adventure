@@ -9,6 +9,9 @@ Wie wäre es mit einer interaktiven Geschichte, die Alexa moderiert? Kinder verb
 ### Projektidee
 Die Projektidee unserer Gruppe, handelt von einer interaktiven "Voice Story". Alexa übernimmt in der Story die Rolle des allwissenden Erzählers. Zusätzlich gibt Alexa dem User, Wahlmöglichkeiten in der Geschichte, welche der User selbst aussuchen kann. Durch diese Entscheidungen, verzweigt sich die Geschichte. Die Story handelt über **deinen** besten Freund "Erik Schneider". In dieser Geschichte gerät dein Kumpel in eine fremde Welt und **deine** Aufgabe ist ihm zu helfen, dass er überlebt und in seine alte Welt wieder zurückfindet. Das Ziel dieser Projektidee ist, zu zeigen, wie man einen Sprachassistenten außerhalb seiner jetzigen Funktionen, zum Beispiel für Unterhaltsame Zwecke noch nutzen kann.
 
+### Anlass
+Das Ergebniss der Arbeit wird am 10. Dezember 2021, im Rahmen des Festivals für Kunst & Forschung in Bayern (Hi!A), Interessenten präsentiert. Die Voice Interfaces können in der Zeit auch interaktiv ausprobiert werden.
+
 ### Kick Off
 Die Teammitglieder fanden sich aufgrund der gemeinsamen Idee zusammen. Daraus bildeten wir ein Team um gemeinnützige Arbeit zu verrichten. Wir machten uns zur Aufgabe einen Mehrwert aus dieser Arbeit zu erzielen und nicht unsere Arbeit bloß als Abgabe einer Arbeit zu betrachten.
 
@@ -17,9 +20,6 @@ Probleme gab es oft beim Coden, diese konnten wir aber oftmals durch einfache Re
 
 ### Prototyp
 Der erste Prototyp wurde auf der Website "Voiceflow" erstellt, dieser wurde oft überarbeitet und die aktuellste Version ist hier auf der Wiki zu finden.
-
-### Anlass
-Das Ergebniss der Arbeit wird am 10. Dezember 2021, im Rahmen des Festivals für Kunst & Forschung in Bayern (Hi!A), Interessenten präsentiert. Die Voice Interfaces können in der Zeit auch interaktiv ausprobiert werden.
 
 ### Ergebnis
 (folgt noch)
