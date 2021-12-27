@@ -13,7 +13,7 @@ Die Projektidee unserer Gruppe, handelt von einer interaktiven "Voice Story". Al
 Das Ergebniss der Arbeit wird am 10. Dezember 2021, im Rahmen des Festivals für Kunst & Forschung in Bayern (Hi!A), Interessenten präsentiert. Die Voice Interfaces können in der Zeit auch interaktiv ausprobiert werden.
 
 ### Kick Off
-Die Teammitglieder fanden sich aufgrund der gemeinsamen Idee zusammen. Daraus bildeten wir ein Team um gemeinnützige Arbeit zu verrichten. Wir machten uns zur Aufgabe einen Mehrwert aus dieser Arbeit zu erzielen und nicht unsere Arbeit bloß als Abgabe einer Arbeit zu betrachten.
+Die Teammitglieder fanden sich aufgrund der gemeinsamen Idee zusammen. Daraus bildeten wir ein Team, um gemeinnützige Arbeit zu verrichten. Wir machten uns zur Aufgabe einen Mehrwert aus dieser Arbeit zu erzielen und nicht unsere Arbeit bloß als Abgabe einer Arbeit zu betrachten.
 
 ### Herangehen und Lösen der Probleme
 Probleme gab es oft beim Coden, diese konnten wir aber oftmals durch einfache Recherche beseitigen. Manchmal mussten wir feststellen, dass wir weder das Know-how noch die Zeit hatten um all unsere Ideen in den Skill zu Implementieren. Daher einigten wir uns auf das Notwendigste was getan werden musste.
