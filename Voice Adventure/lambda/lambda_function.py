@@ -237,7 +237,7 @@ class kaempfenHandler(AbstractRequestHandler) :
     
     def handle(self, handler_input) :
         # type: (HandlerInput) -> Response
-        speak_output = "Erik findet zu seiner Rechten einen großen Stein. Er nimmt den Stein, holt aus und wirft ihn mit aller Kraft auf den Bären. Wutentbrannt läuft der Bär auf Erik zu. Game Over. Willst du es erneut versuchen? Du kannst wegrennen oder still stehen."
+        speak_output = "Erik findet zu seiner Rechten einen großen Stein. Er nimmt den Stein, holt aus und wirft ihn mit aller Kraft auf den Bären.  Wutentbrannt läuft der Bär auf Erik zu. Was soll Erik machen? Sich totstellen oder auf den Bären springen?."
         
         return (
             handler_input.response_builder
@@ -327,6 +327,58 @@ class aufschneiden_und_fliehenHandler(AbstractRequestHandler):
         return (
             handler_input.response_builder
                 .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
+
+class totstellenHandler(AbstractRequestHandler):
+    """Handler for totstellen Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("totstellen")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = "Erik legt sich mit den Rücken auf den Boden und versucht sich nicht zu bewegen. Der Bär lässt sich aber nicht von Eriks Verhalten irritieren und geht in die Offensive. Als der Bär mit seiner Pfote ausholt trifft er die Taschenuhr und Erik findet sich plötzlich wieder in seinem Keller. Anscheinend war es die magische Taschenuhr die er geöffnet hatte und ihn in eine fremde Welt brachte. Erik hat sich bei dir bedankt, dass du all diese Zeit ihm beigestanden bist und er versprach nie wieder diese Uhr zu öffnen. Happy End"
+
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
+
+class springenHandler(AbstractRequestHandler):
+    """Handler for springen Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("springen")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = "Erik springt auf den Bären zu. Der Bär weicht zurück und und brüllt Erik an während er ihn im Kreise gehend beobachtet. Eine Flucht scheint nicht möglich zu sein. Was soll Erik machen? Sich totstellen oder die letze großoffensive starten?"
+
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
+
+class grosoffensiveHandler(AbstractRequestHandler):
+    """Handler for grosoffensive Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("grosoffensive")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = "Erik fasst seinen ganzen Mut zusammen und rennt heroisch auf den Bären zu. Wie ein Patriot der sein Land gegen einen übermächtigen Feind dem Tode ins Auge blickend verteidigt, so muss wohl Erik sich in dem Moment gefühlt haben. Doch all seine Kraft war vergebens. Game Over. Willst du es erneut versuchen? Du kannst Erik raten sich tot zu stellen."
+
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
                 .response
         )
 
@@ -451,6 +503,9 @@ sb.add_request_handler(zu_erik_nach_hause_gehenHandler())
 sb.add_request_handler(SMSHandler())
 sb.add_request_handler(wegrennenHandler())
 sb.add_request_handler(kaempfenHandler())
+sb.add_request_handler(totstellenHandler())
+sb.add_request_handler(springenHandler())
+sb.add_request_handler(grosoffensiveHandler())
 sb.add_request_handler(still_stehenHandler())
 sb.add_request_handler(aus_dem_waldHandler())
 sb.add_request_handler(camp_bauenHandler())
