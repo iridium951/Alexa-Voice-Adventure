@@ -1,24 +1,26 @@
+const util = require('./util.js');
+
 import logging
 import os
 import boto3
 from botocore.exceptions import ClientError
 
+def create_presigned_url(bucket_name, object_name, expiration=3600):
+    """Generate a presigned URL to share an S3 object
 
-def create_presigned_url(object_name):
-    """Generate a presigned URL to share an S3 object with a capped expiration of 60 seconds
-
+    :param bucket_name: string
     :param object_name: string
+    :param expiration: Time in seconds for the presigned URL to remain valid
     :return: Presigned URL as string. If error, returns None.
     """
-    s3_client = boto3.client('s3',
-                             region_name=os.environ.get('S3_PERSISTENCE_REGION'),
-                             config=boto3.session.Config(signature_version='s3v4',s3={'addressing_style': 'path'}))
+
+    # Generate a presigned URL for the S3 object
+    s3_client = boto3.client('s3')
     try:
-        bucket_name = os.environ.get('S3_PERSISTENCE_BUCKET')
         response = s3_client.generate_presigned_url('get_object',
                                                     Params={'Bucket': bucket_name,
                                                             'Key': object_name},
-                                                    ExpiresIn=60*1)
+                                                    ExpiresIn=expiration)
     except ClientError as e:
         logging.error(e)
         return None
