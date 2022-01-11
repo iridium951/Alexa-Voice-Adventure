@@ -169,7 +169,9 @@ class AnrufenHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Du findest Erik in deinen Kontakten und drückst die Anruf-Taste. Nach einer kurzer Pause kommt die Telefonansage. Ihr gewünschter Gesprächspartner ist zurzeit leider nicht erreichbar. Willst du etwas anderes versuchen? Du kannst zu Erik nach Hause gehen oder ihm eine Nachricht schreiben."
+        speak_output = '<speak> Du findest Erik in deinen Kontakten und drückst die Anruf-Taste.' + \
+                        '<audio src="soundbank://soundlibrary/telephones/phone_beeps/phone_beeps_04"/>  \
+                        Nach einer kurzer Pause kommt die Telefonansage. Ihr gewünschter Gesprächspartner ist zurzeit leider nicht erreichbar. Willst du etwas anderes versuchen? Du kannst zu Erik nach Hause gehen oder ihm eine Nachricht schreiben. </speak>'
         
         return (
             handler_input.response_builder
@@ -186,8 +188,13 @@ class zu_erik_nach_hause_gehenHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Während du mit deinem Fahrrad zu Erik nach Hause gefahren bist, hatte Erik einen tapferen Kampf gegen einen Grizzly Bären geliefert und verstarb. Game over. Willst du es erneut versuchen? Du kannst Erik anrufen oder ihm eine Nachricht schreiben."
-        
+        speak_output = '<speak>' + \
+                        '<audio src="soundbank://soundlibrary/transportation/amzn_sfx_bicycle_bell_ring_01"/>  \
+                        Während du mit deinem Fahrrad zu Erik nach Hause gefahren bist, hatte Erik einen tapferen Kampf gegen einen Grizzly Bären geliefert und verstarb. Game over.  \
+                        <audio src="soundbank://soundlibrary/musical/amzn_sfx_church_bell_1x_05"/>  \
+                        Willst du es erneut versuchen? Du kannst Erik anrufen oder ihm eine Nachricht schreiben. </speak>'
+                        
+                        
         return (
             handler_input.response_builder
                 .speak(speak_output)
@@ -205,7 +212,7 @@ class SMSHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
         speak_output = '<speak> Du schreibst eine Nachricht an Erik. Was ist los, Kumpel? Ich kann dich schon seit Stunden nicht erreichen. Schreib zurück sobald du kannst.  Das Handy vibriert, plötzlich bekommst du eine Nachricht von Erik. Während ihr miteinander schreibt, erfährst du, dass er sich irgendwo im Nirgendwo befindet und er aber froh ist mit dir zu schreiben. Du frägst ihn was das Letzte ist an was er sich erinnern kann. Erik antwortete: Ich habe im Keller...' + \
                         '<audio src="soundbank://soundlibrary/animals/amzn_sfx_bear_roar_grumble_01"/>  \
-                        AAAAAA, da vorne ist ein Grizzly Bär. Was soll ich tun?! Willst du Erik schreiben, dass er wegrennen, kämpfen oder still stehen soll?" </speak>'
+                        AAAAAA, da vorne ist ein Grizzly Bär. Was soll ich tun?! Willst du Erik schreiben, dass er wegrennen, kämpfen oder still stehen soll? </speak>'
         
         return (
             handler_input.response_builder
@@ -222,7 +229,11 @@ class wegrennenHandler(AbstractRequestHandler) :
     
     def handle(self, handler_input) :
         # type: (HandlerInput) -> Response
-        speak_output = "Erik läuft mitten durch den Wald. Er sieht einen Fluss. Beim Versuch den Fluss zu durchqueren, rutscht er auf einem glatten Stein aus. Als er sich aufrappeln will, sieht er dem Bären direkt ins Gesicht. Game Over. Willst du es erneut versuchen? Du kannst kämpfen oder still stehen."
+        speak_output = '<speak> Erik läuft mitten durch den Wald. Er sieht einen Fluss.' + \
+                        '<audio src="soundbank://soundlibrary/footsteps/running/running_10"/>  \
+                        Beim Versuch den Fluss zu durchqueren, rutscht er auf einem glatten Stein aus. Als er sich aufrappeln will, sieht er dem Bären direkt ins Gesicht. Game Over.  \
+                        <audio src="soundbank://soundlibrary/musical/amzn_sfx_church_bell_1x_05"/>  \
+                        Willst du es erneut versuchen? Du kannst kämpfen oder still stehen. </speak>'
         
         return (
             handler_input.response_builder
@@ -239,7 +250,9 @@ class kaempfenHandler(AbstractRequestHandler) :
     
     def handle(self, handler_input) :
         # type: (HandlerInput) -> Response
-        speak_output = "Erik findet zu seiner Rechten einen großen Stein. Er nimmt den Stein, holt aus und wirft ihn mit aller Kraft auf den Bären.  Wutentbrannt läuft der Bär auf Erik zu. Was soll Erik machen? Sich totstellen oder auf den Bären springen?."
+        speak_output = '<speak> Erik findet zu seiner Rechten einen großen Stein. Er nimmt den Stein, holt aus und wirft ihn mit aller Kraft auf den Bären.' + \
+                        '<audio src="soundbank://soundlibrary/human/hit_punch_slap/hit_punch_slap_01"/>  \
+                        Wutentbrannt läuft der Bär auf Erik zu. Was soll Erik machen? Sich totstellen oder auf den Bären springen?. </speak>'
         
         return (
             handler_input.response_builder
@@ -256,7 +269,9 @@ class still_stehenHandler(AbstractRequestHandler) :
     
     def handle(self, handler_input) :
         # type: (HandlerInput) -> response
-        speak_output = "Der Bär schaut Erik an und schnüffelt ein wenig an Eriks Beinen. Unbeeindruckt zieht der Bär an Erik vorbei und verschwindet im Gebüsch. Erik bedankt sich bei dir für den Tipp. Nun stellt sich die Frage was er machen soll. Willst du Erik schreiben, dass er ein Camp bauen soll, oder versuchen soll, aus dem Wald rauszukommen?"
+        speak_output = '<speak> Der Bär schaut Erik an und schnüffelt ein wenig an Eriks Beinen.' + \
+                        '<audio src="soundbank://soundlibrary/hospital/heartbeats_ekg/heartbeats_ekg_07"/>  \
+                        Unbeeindruckt zieht der Bär an Erik vorbei und verschwindet im Gebüsch. Erik bedankt sich bei dir für den Tipp. Nun stellt sich die Frage was er machen soll. Willst du Erik schreiben, dass er ein Camp bauen soll, oder versuchen soll, aus dem Wald rauszukommen?" </speak>'
         
         return (
             handler_input.response_builder
@@ -273,7 +288,9 @@ class aus_dem_waldHandler(AbstractRequestHandler) :
     
     def handle(self, handler_input) :
         # type: (HandlerInput) -> response
-        speak_output = "Erik muss dir beichten, dass er einen schlechten Orientierungssinn hat. Er läuft über Fluss und Wälder während er mit dir schreibt. Als du ihn frägst was er eigentlich vorhin sagen wollte, erinnert er sich, dass er  im Keller eine antike Taschenuhr gefunden hat. Das nächste, woran er sich erinnert ist, dass er plötzlich im Wald war. Daraufhin rätst du ihm, die Uhr genauer anzuschauen und zu öffnen. Ein paar Minuten später ruft dich dein bester Freund an und teilt dir mit, dass er wieder zu Hause im Keller ist. Happy End"
+        speak_output = '<speak> Erik muss dir beichten, dass er einen schlechten Orientierungssinn hat. Er läuft über Fluss und Wälder während er mit dir schreibt. Als du ihn frägst was er eigentlich vorhin sagen wollte, erinnert er sich, dass er  im Keller eine antike Taschenuhr gefunden hat. Das nächste, woran er sich erinnert ist, dass er plötzlich im Wald war. Daraufhin rätst du ihm, die Uhr genauer anzuschauen und zu öffnen. Ein paar Minuten später ruft dich dein bester Freund an und teilt dir mit, dass er wieder zu Hause im Keller ist. Happy End' + \
+                       '<audio src="soundbank://soundlibrary/gameshow/gameshow_01"/>  \
+                        </speak>'
         
         return (
             handler_input.response_builder
@@ -290,7 +307,7 @@ class camp_bauenHandler(AbstractRequestHandler) :
     
     def handle(self, handler_input) :
         # type: (HandlerInput) -> response
-        speak_output = "Als Erik einen ruhigen Platz gefunden hat, wo er Stöcke und Steine zu einem kleinen Zelt aufbauen wollte, wird er mit einem Giftpfeil getroffen und schläft ein. Als er wieder aufwacht, ist er in einem Holzkäfig. Erik schaut sich um und sieht Waldbewohner, die sich im Kreis um ein Lagerfeuer scharen. Erik sieht einen spitzen Stein neben sich liegen. Willst du Erik schreiben, dass er die Ranken an der Tür aufschneiden und fliehen soll, oder lieber erstmal abwarten soll?"
+        speak_output = "Als Erik einen ruhigen Platz gefunden hat, wo er Stöcke und Steine zu einem kleinen Zelt aufbauen wollte, wird er mit einem Giftpfeil getroffen und schläft ein. Als er wieder aufwacht, ist er in einem Holzkäfig. Erik schaut sich um und sieht Waldbewohner, die sich im Kreis um ein Lagerfeuer scharen. Erik sieht einen spitzen Stein neben sich liegen. Willst du Erik schreiben, dass er die Ranken an der Tür aufschneiden und fliehen soll, oder lieber erstmal abwarten soll?" 
         
         return (
             handler_input.response_builder
@@ -307,7 +324,11 @@ class abwartenHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Nach kurzer Zeit versammeln sich die Waldbewohner vor dem Käfig, binden Erik an einem Pfahl und bringen ihn zum Feuer. Game over. Willst du es erneut versuchen? Du kannst noch die Ranken aufschneiden und fliehen."
+        speak_output = '<speak> Nach kurzer Zeit versammeln sich die Waldbewohner vor dem Käfig, binden Erik an einem Pfahl und bringen ihn zum Feuer.' + \
+                        '<audio src="soundbank://soundlibrary/explosions/fire/fire_12"/>  \
+                        Game over.  \
+                        <audio src="soundbank://soundlibrary/musical/amzn_sfx_church_bell_1x_05"/>  \
+                        Willst du es erneut versuchen? Du kannst noch die Ranken aufschneiden und fliehen." </speak>'
 
         return (
             handler_input.response_builder
@@ -324,7 +345,13 @@ class aufschneiden_und_fliehenHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Erik rennt schnell ins Gebüsch. Nach einer Weile muss er dir beichten, dass er einen schlechten Orientierungssinn hat. Er läuft über Fluss und Wälder während er mit dir schreibt. Als du ihn frägst, was er eigentlich vorhin sagen wollte, erinnert er sich, dass er  im Keller eine antike Taschenuhr gefunden hat. Das nächste, woran er sich erinnert ist, dass er plötzlich im Wald war. Daraufhin rätst du ihm, die Uhr genauer anzuschauen und zu öffnen. Ein paar Minuten später ruft dich dein bester Freund an und teilt dir mit, dass er wieder zu Hause im Keller ist. Happy End"
+        speak_output = '<speak>' + \
+                        '<audio src="soundbank://soundlibrary/boats_ships/sails/sails_08"/>  \
+                        Erik rennt Nachschnell ins Gebüsch. einer Weile muss er dir beichten, dass er einen schlechten Orientierungssinn hat. Er läuft über Fluss und Wälder während er mit dir schreibt. Als du ihn frägst, was er eigentlich vorhin sagen wollte, erinnert er sich, dass er  im Keller eine antike Taschenuhr gefunden hat. Das nächste, woran er sich erinnert ist, dass er plötzlich im Wald war. Daraufhin rätst du ihm, die Uhr genauer anzuschauen und zu öffnen. \
+                        <audio src="soundbank://soundlibrary/alarms/beeps_and_bloops/zap_03"/>  \
+                        Ein paar Minuten später ruft dich dein bester Freund an und teilt dir mit, dass er wieder zu Hause im Keller ist. Happy End. \
+                        <audio src="soundbank://soundlibrary/gameshow/gameshow_01"/>  \
+                        </speak>'
 
         return (
             handler_input.response_builder
@@ -341,8 +368,10 @@ class totstellenHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Erik legt sich mit den Rücken auf den Boden und versucht sich nicht zu bewegen. Der Bär lässt sich aber nicht von Eriks Verhalten irritieren und geht in die Offensive. Als der Bär mit seiner Pfote ausholt trifft er die Taschenuhr und Erik findet sich plötzlich wieder in seinem Keller. Anscheinend war es die magische Taschenuhr die er geöffnet hatte und ihn in eine fremde Welt brachte. Erik hat sich bei dir bedankt, dass du all diese Zeit ihm beigestanden bist und er versprach nie wieder diese Uhr zu öffnen. Happy End"
-
+        speak_output = '<speak> Erik legt sich mit den Rücken auf den Boden und versucht sich nicht zu bewegen. Der Bär lässt sich aber nicht von Eriks Verhalten irritieren und geht in die Offensive. Als der Bär mit seiner Pfote ausholt trifft er die Taschenuhr und Erik findet sich plötzlich wieder in seinem Keller. Anscheinend war es die magische Taschenuhr die er geöffnet hatte und ihn in eine fremde Welt brachte. Erik hat sich bei dir bedankt, dass du all diese Zeit ihm beigestanden bist und er versprach nie wieder diese Uhr zu öffnen. Happy End' + \
+                        '<audio src="soundbank://soundlibrary/gameshow/gameshow_01"/> \
+                        </speak>'
+                        
         return (
             handler_input.response_builder
                 .speak(speak_output)
@@ -375,7 +404,9 @@ class grosoffensiveHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Erik fasst seinen ganzen Mut zusammen und rennt heroisch auf den Bären zu. Wie ein Patriot der sein Land gegen einen übermächtigen Feind dem Tode ins Auge blickend verteidigt, so muss wohl Erik sich in dem Moment gefühlt haben. Doch all seine Kraft war vergebens. Game Over. Willst du es erneut versuchen? Du kannst Erik raten sich tot zu stellen."
+        speak_output = '<speak> Erik fasst seinen ganzen Mut zusammen und rennt heroisch auf den Bären zu. Wie ein Patriot der sein Land gegen einen übermächtigen Feind dem Tode ins Auge blickend verteidigt, so muss wohl Erik sich in dem Moment gefühlt haben. Doch all seine Kraft war vergebens. Game Over.' + \
+                        '<audio src="soundbank://soundlibrary/musical/amzn_sfx_church_bell_1x_05"/>  \
+                        Willst du es erneut versuchen? Du kannst Erik raten sich tot zu stellen. </speak>'
 
         return (
             handler_input.response_builder
