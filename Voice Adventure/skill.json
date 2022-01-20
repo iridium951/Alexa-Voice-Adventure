@@ -215,6 +215,43 @@
                         "großoffensive starten",
                         "Großoffensive"
                     ]
+                },
+                {
+                    "name": "kommunizieren",
+                    "slots": [],
+                    "samples": [
+                        "er soll kommunizieren",
+                        "Erik soll kommunizieren",
+                        "mit den Waldbewohnern kommunizieren",
+                        "kommunizieren"
+                    ]
+                },
+                {
+                    "name": "weiter_reden",
+                    "slots": [],
+                    "samples": [
+                        "weiter reden",
+                        "reden",
+                        "sprechen",
+                        "weiter sprechen"
+                    ]
+                },
+                {
+                    "name": "verstummen",
+                    "slots": [],
+                    "samples": [
+                        "er soll verstummen",
+                        "Erik soll verstummen",
+                        "verstummen"
+                    ]
+                },
+                {
+                    "name": "waldbewohner_erschrecken",
+                    "slots": [],
+                    "samples": [
+                        "erschrecken",
+                        "waldbewohner erschrecken"
+                    ]
                 }
             ],
             "types": []
