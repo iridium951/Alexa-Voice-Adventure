@@ -169,9 +169,9 @@ class AnrufenHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = '<speak> Du findest Erik in deinen Kontakten und drückst die Anruf-Taste.' + \
+        speak_output = '<speak> Du findest Erik in deinen Kontakten und drückst die Anruf-Taste. Nach einer kurzer Pause kommt die Telefonansage. Ihr gewünschter Gesprächspartner ist zurzeit leider nicht erreichbar.' + \
                         '<audio src="soundbank://soundlibrary/telephones/phone_beeps/phone_beeps_04"/>  \
-                        Nach einer kurzer Pause kommt die Telefonansage. Ihr gewünschter Gesprächspartner ist zurzeit leider nicht erreichbar. Willst du etwas anderes versuchen? Du kannst zu Erik nach Hause gehen oder ihm eine Nachricht schreiben. </speak>'
+                        Willst du etwas anderes versuchen? Du kannst zu Erik nach Hause gehen oder ihm eine Nachricht schreiben. </speak>'
         
         return (
             handler_input.response_builder
@@ -307,7 +307,7 @@ class camp_bauenHandler(AbstractRequestHandler) :
     
     def handle(self, handler_input) :
         # type: (HandlerInput) -> response
-        speak_output = "Als Erik einen ruhigen Platz gefunden hat, wo er Stöcke und Steine zu einem kleinen Zelt aufbauen wollte, wird er mit einem Giftpfeil getroffen und schläft ein. Als er wieder aufwacht, ist er in einem Holzkäfig. Erik schaut sich um und sieht Waldbewohner, die sich im Kreis um ein Lagerfeuer scharen. Erik sieht einen spitzen Stein neben sich liegen. Willst du Erik schreiben, dass er die Ranken an der Tür aufschneiden und fliehen soll, oder lieber erstmal abwarten soll?" 
+        speak_output = "Als Erik einen ruhigen Platz gefunden hat, wo er Stöcke und Steine zu einem kleinen Zelt aufbauen wollte, wird er mit einem Giftpfeil getroffen und schläft ein. Als er wieder aufwacht, ist er in einem Holzkäfig. Erik schaut sich um und sieht Waldbewohner, die sich im Kreis um ein Lagerfeuer scharen. Erik sieht einen spitzen Stein neben sich liegen. Willst du Erik schreiben, dass er die Ranken an der Tür aufschneiden und fliehen soll, lieber erstmal abwarten soll oder mit den Waldbewohnern kommunizieren soll?" 
         
         return (
             handler_input.response_builder
@@ -328,7 +328,7 @@ class abwartenHandler(AbstractRequestHandler):
                         '<audio src="soundbank://soundlibrary/explosions/fire/fire_12"/>  \
                         Game over.  \
                         <audio src="soundbank://soundlibrary/musical/amzn_sfx_church_bell_1x_05"/>  \
-                        Willst du es erneut versuchen? Du kannst noch die Ranken aufschneiden und fliehen." </speak>'
+                        Willst du es erneut versuchen? Du kannst noch die Ranken aufschneiden und fliehen oder mit den Waldbewohnern kommunizieren." </speak>'
 
         return (
             handler_input.response_builder
@@ -347,7 +347,7 @@ class aufschneiden_und_fliehenHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
         speak_output = '<speak>' + \
                         '<audio src="soundbank://soundlibrary/boats_ships/sails/sails_08"/>  \
-                        Erik rennt Nachschnell ins Gebüsch. einer Weile muss er dir beichten, dass er einen schlechten Orientierungssinn hat. Er läuft über Fluss und Wälder während er mit dir schreibt. Als du ihn frägst, was er eigentlich vorhin sagen wollte, erinnert er sich, dass er  im Keller eine antike Taschenuhr gefunden hat. Das nächste, woran er sich erinnert ist, dass er plötzlich im Wald war. Daraufhin rätst du ihm, die Uhr genauer anzuschauen und zu öffnen. \
+                        Erik rennt schnell ins Gebüsch. Nach einer Weile muss er dir beichten, dass er einen schlechten Orientierungssinn hat. Er läuft über Fluss und Wälder während er mit dir schreibt. Als du ihn frägst, was er eigentlich vorhin sagen wollte, erinnert er sich, dass er  im Keller eine antike Taschenuhr gefunden hat. Das nächste, woran er sich erinnert ist, dass er plötzlich im Wald war. Daraufhin rätst du ihm, die Uhr genauer anzuschauen und zu öffnen. \
                         <audio src="soundbank://soundlibrary/alarms/beeps_and_bloops/zap_03"/>  \
                         Ein paar Minuten später ruft dich dein bester Freund an und teilt dir mit, dass er wieder zu Hause im Keller ist. Happy End. \
                         <audio src="soundbank://soundlibrary/gameshow/gameshow_01"/>  \
@@ -387,7 +387,7 @@ class springenHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Erik springt auf den Bären zu. Der Bär weicht zurück und und brüllt Erik an während er ihn im Kreise gehend beobachtet. Eine Flucht scheint nicht möglich zu sein. Was soll Erik machen? Sich totstellen oder die letze großoffensive starten?"
+        speak_output = "Erik springt auf den Bären zu. Der Bär weicht zurück und brüllt Erik an während er ihn im Kreise gehend beobachtet. Eine Flucht scheint nicht möglich zu sein. Was soll Erik machen? Sich totstellen oder die letzte großoffensive starten?"
 
         return (
             handler_input.response_builder
@@ -415,6 +415,80 @@ class grosoffensiveHandler(AbstractRequestHandler):
                 .response
         )
 
+class kommunizierenHandler(AbstractRequestHandler):
+    """Handler for kommunizieren Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("kommunizieren")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = "Erik kommt näher an die Tür und fuchtelt mit den Händen, um bemerkt zu werden. Warum habt ihr mich eingesperrt? ruft Erik durch die Gittern. Ein paar Waldbewohner schauen zu ihm und tauschen fragende Blicke. Einer von denen steht auf und nähert sich vorsichtig dem Käfig. Was soll Erik tun? Soll er weiter reden, verstummen oder versuchen die Waldbewohner zu erschrecken?"
+
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
+
+class weiter_redenHandler(AbstractRequestHandler):
+    """Handler for weiter_reden Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("weiter_reden")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = '<speak> Erik redet trotz der verwirrten Blicke weiter. Er versucht zu gestikulieren, dass er freundlich ist und erzählt alles was seit seiner Ankunft in dieser Welt passiert ist. Während des Erzählens, erinnert er sich, dass er im Keller eine antike Taschenuhr gefunden hat. Dann fand er sich plötzlich im Wald. Daraufhin holt er die Uhr aus der Hosentasche raus um sie den Waldbewohnern zu zeigen, und öffnet sie. Erik findet sich plötzlich wieder in seinem Keller. Anscheinend war es die magische Taschenuhr die er geöffnet hatte und ihn in eine fremde Welt brachte. Erik hat sich bei dir bedankt, dass du all diese Zeit ihm beigestanden bist und er versprach nie wieder diese Uhr zu öffnen. Happy End.' + \
+                        '<audio src="soundbank://soundlibrary/gameshow/gameshow_01"/>  \
+                        </speak>'
+
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )        
+
+class verstummenHandler(AbstractRequestHandler):
+    """Handler for verstummen Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("verstummen")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = '<speak> Erik hört auf dein Ratschlag und verstummt. Der sich nähernde Waldbewohner schüttelt verärgert seinen Kopf und kehrt zurück zu seinen Freunden. Nach kurzer Zeit versammeln sich die Waldbewohner vor dem Käfig, binden Erik an einem Pfahl und bringen ihn zum Feuer. Game Over.' + \
+                        '<audio src="soundbank://soundlibrary/musical/amzn_sfx_church_bell_1x_05"/>  \
+                        Willst du es erneut versuchen? Du kannst noch Erik raten weiter zu reden oder die Waldbewohner zu erschrecken. </speak>'
+
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
+
+class waldbewohner_erschreckenHandler(AbstractRequestHandler):
+    """Handler for waldbewohner_erschrecken Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("waldbewohner_erschrecken")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = '<speak> Erik sucht panisch nach etwas, womit er den Waldbewohnern Angst machen könnte. Auf einmal fällt ihm eine geniale Idee ein- die Taschenlampe auf seinem Handy. Die Waldbewohner schreien vor Angst auf als er es Triumphal in die Luft hält, und fallen einer nach dem anderen auf die Knie. Erik wird zügig aus dem Käfig rausgelassen. Gute Arbeit! schreibst du an Erik. Jetzt ist die perfekte Gelegenheit um diesen Ort zu verlassen. Erst nach ein paar Minuten kommt eine Antwort. Weißt du was? schreibt er. Eigentlich ist es gar nicht so schlimm hier. Danke für deine Hilfe, aber ab jetzt werde ich schon allein zurecht kommen. Happy End' + \
+                        '<audio src="soundbank://soundlibrary/gameshow/gameshow_01"/>  \
+                        </speak>'
+
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
+
 class HelpIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
     def can_handle(self, handler_input):
@@ -431,7 +505,6 @@ class HelpIntentHandler(AbstractRequestHandler):
                 .ask(speak_output)
                 .response
         )
-
 
 class CancelOrStopIntentHandler(AbstractRequestHandler):
     """Single handler for Cancel and Stop Intent."""
@@ -539,6 +612,10 @@ sb.add_request_handler(kaempfenHandler())
 sb.add_request_handler(totstellenHandler())
 sb.add_request_handler(springenHandler())
 sb.add_request_handler(grosoffensiveHandler())
+sb.add_request_handler(kommunizierenHandler())
+sb.add_request_handler(weiter_redenHandler())
+sb.add_request_handler(verstummenHandler())
+sb.add_request_handler(waldbewohner_erschreckenHandler())
 sb.add_request_handler(still_stehenHandler())
 sb.add_request_handler(aus_dem_waldHandler())
 sb.add_request_handler(camp_bauenHandler())
