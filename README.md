@@ -1,4 +1,5 @@
-![1](https://user-images.githubusercontent.com/93767898/144522574-2b965b1a-0d97-426e-8b9e-9120221d566b.jpg)
+![1](https://user-images.githubusercontent.com/93767898/150451893-8c45b355-d9ea-41f0-9551-dd072510c3ed.png)
+)
 # Start-Team-01 Voice Adventure  
 Willkommen auf der Readme des Voice Adventure Teams.
 
