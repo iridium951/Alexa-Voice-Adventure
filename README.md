@@ -1,5 +1,4 @@
 ![1](https://user-images.githubusercontent.com/93767898/150451893-8c45b355-d9ea-41f0-9551-dd072510c3ed.png)
-)
 # Start-Team-01 Voice Adventure  
 Willkommen auf der Readme des Voice Adventure Teams.
 
@@ -27,7 +26,7 @@ Probleme gab es oft beim Coden, diese konnten wir aber oftmals durch einfache Re
  **Irina Reich**
 Informatik und Design, Munich, Germany
 
- **Caitlin Phitheta**
+ **Joan Caitlin Phitheta**
 Informatik und Design, Munich, Germany
 
  **Anastasia Shulman**
